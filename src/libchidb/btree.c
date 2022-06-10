@@ -42,7 +42,6 @@
  *
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -53,7 +52,6 @@
 #include "record.h"
 #include "pager.h"
 #include "util.h"
-
 
 /* Open a B-Tree file
  *
@@ -84,7 +82,6 @@ int chidb_Btree_open(const char *filename, chidb *db, BTree **bt)
     return CHIDB_OK;
 }
 
-
 /* Close a B-Tree file
  *
  * This function closes a database file, freeing any resource
@@ -103,7 +100,6 @@ int chidb_Btree_close(BTree *bt)
 
     return CHIDB_OK;
 }
-
 
 /* Loads a B-Tree node from disk
  *
@@ -133,7 +129,6 @@ int chidb_Btree_getNodeByPage(BTree *bt, npage_t npage, BTreeNode **btn)
     return CHIDB_OK;
 }
 
-
 /* Frees the memory allocated to an in-memory B-Tree node
  *
  * Frees the memory allocated to an in-memory B-Tree node, and
@@ -153,7 +148,6 @@ int chidb_Btree_freeMemNode(BTree *bt, BTreeNode *btn)
 
     return CHIDB_OK;
 }
-
 
 /* Create a new B-Tree node
  *
@@ -177,7 +171,6 @@ int chidb_Btree_newNode(BTree *bt, npage_t *npage, uint8_t type)
 
     return CHIDB_OK;
 }
-
 
 /* Initialize a B-Tree node
  *
@@ -203,8 +196,6 @@ int chidb_Btree_initEmptyNode(BTree *bt, npage_t npage, uint8_t type)
     return CHIDB_OK;
 }
 
-
-
 /* Write an in-memory B-Tree node to disk
  *
  * Writes an in-memory B-Tree node to disk. To do this, we need to update
@@ -228,7 +219,6 @@ int chidb_Btree_writeNode(BTree *bt, BTreeNode *btn)
 
     return CHIDB_OK;
 }
-
 
 /* Read the contents of a cell
  *
@@ -254,7 +244,6 @@ int chidb_Btree_getCell(BTreeNode *btn, ncell_t ncell, BTreeCell *cell)
 
     return CHIDB_OK;
 }
-
 
 /* Insert a new cell into a B-Tree node
  *
@@ -310,8 +299,6 @@ int chidb_Btree_find(BTree *bt, npage_t nroot, chidb_key_t key, uint8_t **data, 
     return CHIDB_OK;
 }
 
-
-
 /* Insert an entry into a table B-Tree
  *
  * This is a convenience function that wraps around chidb_Btree_insert.
@@ -339,7 +326,6 @@ int chidb_Btree_insertInTable(BTree *bt, npage_t nroot, chidb_key_t key, uint8_t
     return CHIDB_OK;
 }
 
-
 /* Insert an entry into an index B-Tree
  *
  * This is a convenience function that wraps around chidb_Btree_insert.
@@ -365,7 +351,6 @@ int chidb_Btree_insertInIndex(BTree *bt, npage_t nroot, chidb_key_t keyIdx, chid
 
     return CHIDB_OK;
 }
-
 
 /* Insert a BTreeCell into a B-Tree
  *
@@ -426,7 +411,6 @@ int chidb_Btree_insertNonFull(BTree *bt, npage_t npage, BTreeCell *btc)
     return CHIDB_OK;
 }
 
-
 /* Split a B-Tree node
  *
  * Splits a B-Tree node N. This involves the following:
@@ -456,4 +440,3 @@ int chidb_Btree_split(BTree *bt, npage_t npage_parent, npage_t npage_child, ncel
 
     return CHIDB_OK;
 }
-
